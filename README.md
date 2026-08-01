@@ -15,32 +15,32 @@ RESEARCH → INNOVATE → PLAN → EXECUTE → REVIEW
 
 ```yaml
 skills:
-  - name: CS-riper-core
-    path: .cursor/skills/CS-riper-core/
+  - name: core-CS
+    path: .cursor/skills/core-CS/
     role: 协议骨架，被以下 5 个阶段 skill 引用
 
-  - name: CS-riper-research
-    path: .cursor/skills/CS-riper-research/
+  - name: research-CS
+    path: .cursor/skills/research-CS/
     role: 阶段1 — 信息收集、代码调查、架构分析
 
-  - name: CS-riper-innovate
-    path: .cursor/skills/CS-riper-innovate/
+  - name: brainstorm-CS
+    path: .cursor/skills/brainstorm-CS/
     role: 阶段2 — 方案头脑风暴、权衡评估
 
-  - name: CS-riper-plan
-    path: .cursor/skills/CS-riper-plan/
+  - name: plan-CS
+    path: .cursor/skills/plan-CS/
     role: 阶段3 — 精确技术规范、编号实施清单
 
-  - name: CS-riper-execute
-    path: .cursor/skills/CS-riper-execute/
+  - name: execute-CS
+    path: .cursor/skills/execute-CS/
     role: 阶段4 — 严格按清单实施、更新进度
 
-  - name: CS-riper-review
-    path: .cursor/skills/CS-riper-review/
+  - name: review-CS
+    path: .cursor/skills/review-CS/
     role: 阶段5 — 逐行验证实施与计划偏差
 
-  - name: CS-grill-me
-    path: .cursor/skills/CS-grill-me/
+  - name: interrogate-CS
+    path: .cursor/skills/interrogate-CS/
     role: 独立质询 skill — 逐问题拷问计划直到意图清晰
 ```
 
@@ -56,12 +56,12 @@ commands:
   - name: riper-plan
     path: .cursor/commands/riper-plan.md
     trigger: /riper-plan
-    action: 调用 CS-riper-plan skill 生成技术规范
+    action: 调用 plan-CS skill 生成技术规范
 
   - name: riper-execute
     path: .cursor/commands/riper-execute.md
     trigger: /riper-execute
-    action: 调用 CS-riper-execute skill 按清单实施
+    action: 调用 execute-CS skill 按清单实施
 
   - name: riper-grill
     path: .cursor/commands/riper-grill.md
@@ -127,19 +127,19 @@ transitions:
 │   ├── riper-plan.md           # 规划命令
 │   └── riper-grill.md          # 研究+质询命令
 └── skills/
-    ├── CS-riper-core/          # 协议骨架
+    ├── core-CS/              # 协议骨架
     │   └── SKILL.md
-    ├── CS-riper-research/      # 阶段1
+    ├── research-CS/          # 阶段1
     │   └── SKILL.md
-    ├── CS-riper-innovate/      # 阶段2
+    ├── brainstorm-CS/        # 阶段2
     │   └── SKILL.md
-    ├── CS-riper-plan/          # 阶段3
+    ├── plan-CS/              # 阶段3
     │   └── SKILL.md
-    ├── CS-riper-execute/       # 阶段4
+    ├── execute-CS/           # 阶段4
     │   └── SKILL.md
-    ├── CS-riper-review/        # 阶段5
+    ├── review-CS/            # 阶段5
     │   └── SKILL.md
-    └── CS-grill-me/            # 质询 skill
+    └── interrogate-CS/       # 质询 skill
         ├── SKILL.md
         ├── assets/
         ├── references/
