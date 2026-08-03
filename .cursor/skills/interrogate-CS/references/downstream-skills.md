@@ -1,25 +1,25 @@
 # Downstream Skills — Concept Spec
 
-> Consumes `grill-me` output. **Not yet implemented** — contracts for future development.
+> Consumes `interrogate-CS` output. **Not yet implemented** — contracts for future development.
 
 ## Overview
 
 ```yaml
 pipeline:
-  flow: "grill-me → decision-log.md → [to-prd | to-issues | grill-me --light]"
+  flow: "interrogate-CS → decision-log.md → [to-prd | to-issues | interrogate-CS --light]"
   principle: "decision log is the single source of truth"
   communication: "no skill talks directly to another — all via decision log"
 
 interface:
-  +------------+------------------+------------------+
-  | Skill      | Reads            | Produces         |
-  +------------+------------------+------------------+
-  | grill-me   | user input, code | decision-log.md  |
-  | to-prd     | decision-log.md  | prd.md           |
-  | to-issues  | decision-log.md  | issues/          |
-  | grill-me   | decision-log.md  | updated          |
-  |  --light   |                  | decision-log.md  |
-  +------------+------------------+------------------+
+  +----------------+------------------+------------------+
+  | Skill          | Reads            | Produces         |
+  +----------------+------------------+------------------+
+  | interrogate-CS | user input, code | decision-log.md  |
+  | to-prd         | decision-log.md  | prd.md           |
+  | to-issues      | decision-log.md  | issues/          |
+  | interrogate-CS | decision-log.md  | updated          |
+  |  --light       |                  | decision-log.md  |
+  +----------------+------------------+------------------+
 ```
 
 ## to-prd (planned)
@@ -61,7 +61,7 @@ flow:
 trigger: 'user says "break this into issues" or handoff recommends to-issues'
 ```
 
-## grill-me --light
+## interrogate-CS --light
 
 ```yaml
 purpose: "shorter follow-up session on decision subset"
@@ -71,7 +71,7 @@ flow:
   - identify open boundaries ([OPEN] decisions + dependencies)
   - run compressed interrogation (light depth: 3-7 questions)
   - update same decision-log.md in place
-trigger: 'user says "follow up on deferred decisions" or "grill me on remaining open questions"'
+trigger: 'user says "follow up on deferred decisions" or "interrogate remaining open questions"'
 ```
 
 ## Design Principle

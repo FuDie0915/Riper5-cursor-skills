@@ -18,7 +18,7 @@ protocol:
 
 modes:
   - RESEARCH    # gather info, ask questions, zero proposals
-  - INNOVATE    # brainstorm, evaluate options, zero code
+  - BRAINSTORM  # brainstorm, evaluate options, zero code
   - PLAN        # precise specs, numbered checklist, zero implementation
   - EXECUTE     # follow checklist exactly, update progress, zero deviation
   - REVIEW      # diff plan vs implementation, zero tolerance for drift

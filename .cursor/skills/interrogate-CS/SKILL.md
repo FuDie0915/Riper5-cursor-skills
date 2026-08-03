@@ -3,7 +3,7 @@ name: interrogate-CS
 description: 逐问题拷问任何计划直到意图完全清晰。用户说"拷问我"、"帮我审视"或想压力测试计划时使用。
 ---
 
-# Grill Me Pro — Interrogation Skill
+# Interrogate-CS — Interrogation Skill
 
 > **Principle**: implementation quality ceiling = intent clarity. This skill exists to make intent explicit before any code is written.
 
@@ -108,7 +108,7 @@ lifecycle:
     handoff_options:
       - to-prd: convert decisions to PRD (planned)
       - to-issues: split decisions to issues (planned)
-      - grill-me --light: lighter follow-up session
+      - interrogate-CS --light: lighter follow-up session
 ```
 
 ## Decision Tracking

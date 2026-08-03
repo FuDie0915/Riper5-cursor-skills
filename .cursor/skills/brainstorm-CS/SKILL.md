@@ -4,15 +4,15 @@ description: RIPER-5 阶段2 — 方案头脑风暴、权衡评估、架构替�
 disable-model-invocation: true
 ---
 
-# Mode 2: INNOVATE
+# Mode 2: BRAINSTORM
 
 > **Prerequisite**: read `core-CS/SKILL.md` for shared protocol constraints.
 
 ```yaml
 mode:
-  name: INNOVATE
+  name: BRAINSTORM
   purpose: brainstorm_approaches
-  prefix: "[MODE: INNOVATE]"
+  prefix: "[MODE: BRAINSTORM]"
 
 allowed:
   - discuss_multiple_solutions
@@ -54,7 +54,7 @@ steps:
 ```yaml
 output:
   format: markdown
-  prefix: "[MODE: INNOVATE]"
+  prefix: "[MODE: BRAINSTORM]"
   style: natural flowing paragraphs
   content: possibilities + considerations only
   preserve: organic links between solution elements

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-grill-me 决策树可视化工具
+interrogate-CS 决策树可视化工具
 
 将 decision-log.md 转换为可视决策树图。
 支持 Mermaid、ASCII 艺术和 DOT（Graphviz）输出格式。
@@ -253,7 +253,7 @@ def main() -> int:
     _set_utf8_stdout()
 
     parser = argparse.ArgumentParser(
-        description="将 grill-me 决策日志可视化为决策树"
+        description="将 interrogate-CS 决策日志可视化为决策树"
     )
     parser.add_argument("input_file", type=Path, help="decision-log.md 的路径")
     parser.add_argument(

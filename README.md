@@ -7,7 +7,7 @@
 RIPER-5 是一个五阶段 AI 编码行为协议，通过严格的模式隔离防止 AI 在未经授权的情况下修改代码。每个阶段有明确的允许/禁止边界，阶段间只能通过显式信号转换。
 
 ```
-RESEARCH → INNOVATE → PLAN → EXECUTE → REVIEW
+RESEARCH → BRAINSTORM → PLAN → EXECUTE → REVIEW
  收集信息    方案探索    技术规范    忠实实施    无情验证
 ```
 
@@ -66,7 +66,7 @@ commands:
   - name: riper-grill
     path: .cursor/commands/riper-grill.md
     trigger: /riper-grill
-    action: 先研究代码，再用 grill-me 方式逐层拷问用户意图
+    action: 先研究代码，再用 interrogate-CS 方式逐层拷问用户意图
 ```
 
 ## 用法
@@ -77,8 +77,8 @@ commands:
 用户: ENTER RESEARCH MODE
 AI:   [MODE: RESEARCH] 读取文件、分析架构、提出澄清问题
 
-用户: ENTER INNOVATE MODE
-AI:   [MODE: INNOVATE] 探索多种方案、评估优劣
+用户: ENTER BRAINSTORM MODE
+AI:   [MODE: BRAINSTORM] 探索多种方案、评估优劣
 
 用户: ENTER PLAN MODE
 AI:   [MODE: PLAN] 输出编号实施清单，等待批准
@@ -90,7 +90,7 @@ AI:   [MODE: EXECUTE] 逐项实施，每步请求确认
 AI:   [MODE: REVIEW] 逐行比对计划与实施，输出结论
 ```
 
-### 使用 grill-me 质询
+### 使用 interrogate-CS 质询
 
 ```
 用户: 帮我审视一下这个架构

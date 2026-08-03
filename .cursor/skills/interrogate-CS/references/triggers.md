@@ -6,12 +6,12 @@
 
 ```yaml
 primary_triggers:
-  - pattern: "grill me"
-    example: "grill me on this plan"
-  - pattern: "grill-me"
-    example: "run grill-me on this design"
-  - pattern: "grill me pro"
-    example: "use grill-me"
+  - pattern: "interrogate me"
+    example: "interrogate me on this plan"
+  - pattern: "interrogate-CS"
+    example: "run interrogate-CS on this design"
+  - pattern: "interrogate me pro"
+    example: "use interrogate-CS"
   - pattern: "interrogate + plan|design|architecture"
     example: "interrogate this architecture"
   - pattern: "challenge my + design|plan|approach"
@@ -48,8 +48,6 @@ secondary_triggers:
 
 ```yaml
 negative_triggers:
-  - pattern: "grill (cooking context)"
-    reason: "cooking, not planning — e.g. 'how to grill steak'"
   - pattern: "interrogate (data context)"
     reason: "data analysis, not design review — e.g. 'interrogate this dataset'"
   - pattern: "plan (scheduling)"
@@ -66,7 +64,7 @@ negative_triggers:
 
 ```yaml
 confidence:
-  certain: 1.0   # exact skill name match (grill-me, grill me pro)
+  certain: 1.0   # exact skill name match (interrogate-CS)
   high: 0.9      # primary trigger + design/plan context
   medium: 0.7    # secondary trigger + clear planning context
   low: 0.4      # single keyword match, no context
