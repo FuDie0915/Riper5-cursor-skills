@@ -82,5 +82,6 @@ output:
 ## Duration
 
 ```yaml
-duration: until explicit "ENTER {NEXT} MODE" signal
+duration: until explicit "ENTER PLAN MODE" signal
+next_prompt: "when convergence gate met, prompt user: ENTER PLAN MODE"
 ```

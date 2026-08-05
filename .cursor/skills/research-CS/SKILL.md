@@ -69,5 +69,6 @@ steps:
 ## Duration
 
 ```yaml
-duration: until explicit "ENTER {NEXT} MODE" signal
+duration: until explicit "ENTER BRAINSTORM MODE" signal
+next_prompt: "when analysis complete, prompt user: ENTER BRAINSTORM MODE"
 ```

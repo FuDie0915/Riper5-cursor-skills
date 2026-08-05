@@ -61,7 +61,7 @@ steps:
     action: "continue to next checklist item"
 
   - id: on_all_complete
-    action: "move to REVIEW"
+    action: "prompt user: ENTER REVIEW MODE"
 ```
 
 ## Code Quality

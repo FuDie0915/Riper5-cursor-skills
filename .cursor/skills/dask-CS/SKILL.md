@@ -106,6 +106,7 @@ lifecycle:
       - ADRs created or suggested
       - artifact: decision-log.md (format: references/decision-log.md)
     handoff_options:
+      - to-brainstorm: "prompt user: ENTER BRAINSTORM MODE (default path after /init)"
       - to-prd: convert decisions to PRD (planned)
       - to-issues: split decisions to issues (planned)
       - dask-CS --light: lighter follow-up session
