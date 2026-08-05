@@ -25,8 +25,8 @@ modes:
 
 transitions:
   trigger: "ENTER {MODE} MODE"   # explicit only, no auto-transition
-  execute_to_plan: on_deviation    # EXECUTE 发现需偏离 → 回退 PLAN
-  execute_to_review: on_completion  # 全部实施完成且用户确认 → 进入 REVIEW
+  execute_to_plan: on_deviation    # EXECUTE 发现需偏离 → 回退 PLAN（协议驱动，非用户信号）
+  execute_to_review: on_completion  # 全部实施完成 → 提示用户输入 ENTER REVIEW MODE（非自动切换）
 
 entry_paths:
   research_entry:
@@ -72,6 +72,7 @@ invariants:
 
   - id: no_unauthorized_transition
     rule: "no mode switch without explicit ENTER signal"
+    exception: "rollback_paths and protocol_transitions are driven by protocol, not user signal"
     severity: critical
 
   - id: execute_fidelity

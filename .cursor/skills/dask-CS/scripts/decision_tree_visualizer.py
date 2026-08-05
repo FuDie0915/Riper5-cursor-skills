@@ -91,7 +91,7 @@ def build_tree(decisions: list[dict]) -> tuple[dict[str, list[str]], set[str]]:
         if not downstream:
             continue
         # 按逗号/分号拆分并提取每个部分开头的决策 ID
-        parts = re.split(r'[,;]', downstream)
+        parts = re.split(r'[,;、，；]', downstream)
         for part in parts:
             part = part.strip()
             # 匹配每个部分开头的决策 ID
@@ -130,7 +130,7 @@ def status_icon(status: str) -> str:
     return "[?]"
 
 
-def status_emoji(status: str) -> str:
+def status_label(status: str) -> str:
     """返回适用于所有输出格式的 ASCII 安全状态指示符。
 
     使用纯 ASCII，避免在 Windows GBK 终端上出现 UnicodeEncodeError。
@@ -145,7 +145,7 @@ def to_mermaid(decisions: list[dict], tree: dict[str, list[str]], roots: set[str
     
     # 添加节点
     for d in decisions:
-        icon = status_emoji(d["status"])
+        icon = status_label(d["status"])
         safe_title = d["title"].replace('"', '\\"')
         lines.append(f'    {d["id"]}["{icon} {d["id"]}: {safe_title}"]')
     
@@ -228,7 +228,7 @@ def to_dot(decisions: list[dict], tree: dict[str, list[str]], roots: set[str]) -
                 color = color_val
                 break
         safe_title = d["title"].replace('"', '\\"')
-        label = f"{status_emoji(d['status'])} {d['id']}:\\n{safe_title}"
+        label = f"{status_label(d['status'])} {d['id']}:\\n{safe_title}"
         lines.append(f'    {d["id"]} [label="{label}", fillcolor="{color}"];')
     
     for parent_id in sorted(tree.keys()):

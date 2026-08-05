@@ -77,6 +77,11 @@ commands:
     trigger: /research
     action: 调用 research-CS 信息收集与代码分析
 
+  - name: brainstorm
+    path: .cursor/commands/brainstorm.md
+    trigger: /brainstorm
+    action: 调用 brainstorm-CS 方案探索与权衡评估
+
   - name: plan
     path: .cursor/commands/plan.md
     trigger: /plan
@@ -154,9 +159,9 @@ AI:   [PHASE: Conclude] 输出 decision-log.md
 ```yaml
 transitions:
   trigger: "ENTER {MODE} MODE"   # 唯一合法的转换信号
-  auto_fallback:
+  protocol_transitions:          # 协议驱动的非自愿转换（非用户信号）
     - EXECUTE 发现偏离 → 回退 PLAN
-    - EXECUTE 全部完成且用户确认 → 进入 REVIEW
+    - EXECUTE 全部完成 → 提示用户输入 ENTER REVIEW MODE
   rollback_paths:
     - PLAN → RESEARCH（约束不清晰）
     - PLAN → BRAINSTORM（方案选错）
@@ -228,6 +233,7 @@ limitations:
 │   ├── init.md                 # /init — 从零开始入口
 │   ├── dask.md                 # /dask — 独立深问
 │   ├── research.md             # /research — 代码分析
+│   ├── brainstorm.md           # /brainstorm — 方案探索
 │   ├── plan.md                 # /plan — 技术规范
 │   ├── execute.md              # /execute — 实施
 │   ├── review.md               # /review — 验证

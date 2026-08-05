@@ -100,3 +100,10 @@ output:
   prefix: "[MODE: EXECUTE]"
   content: implementation matching plan + current checklist item
 ```
+
+## Duration
+
+```yaml
+duration: until all checklist items complete + explicit "ENTER REVIEW MODE" signal
+next_prompt: "when all items complete, prompt user: ENTER REVIEW MODE"
+```

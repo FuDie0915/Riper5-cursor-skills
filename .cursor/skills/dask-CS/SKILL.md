@@ -1,6 +1,7 @@
 ---
 name: dask-CS
 description: 逐问题深问直到意图完全清晰。用户说"拷问我"、"帮我审视"或想压力测试计划时使用。
+disable-model-invocation: false  # 允许自然语言触发，与阶段 skill 区分
 ---
 
 # Dask-CS — Deep Ask Skill

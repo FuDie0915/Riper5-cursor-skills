@@ -6,7 +6,7 @@
 
 ```yaml
 pipeline:
-  flow: "dask-CS → decision-log.md → [to-prd | to-issues | dask-CS --light]"
+  flow: "dask-CS → decision-log.md → [to-brainstorm | to-prd | to-issues | dask-CS --light]"
   principle: "decision log is the single source of truth"
   communication: "no skill talks directly to another — all via decision log"
 
@@ -15,11 +15,26 @@ interface:
   | Skill          | Reads            | Produces         |
   +----------------+------------------+------------------+
   | dask-CS        | user input, code | decision-log.md  |
+  | to-brainstorm  | decision-log.md  | ENTER BRAINSTORM |
   | to-prd         | decision-log.md  | prd.md           |
   | to-issues      | decision-log.md  | issues/          |
   | dask-CS        | decision-log.md  | updated          |
   |  --light       |                  | decision-log.md  |
   +----------------+------------------+------------------+
+```
+
+## to-brainstorm
+
+```yaml
+purpose: "hand off to RIPER-5 BRAINSTORM phase with decision context"
+input: decision-log.md (key decisions [RESOLVED] or [DEFERRED])
+output: "prompt user: ENTER BRAINSTORM MODE"
+flow:
+  - read decision-log.md, extract resolved decisions
+  - summarize chosen approach + core decisions for BRAINSTORM
+  - carry DEFERRED decisions as constraints
+  - prompt user to enter BRAINSTORM MODE
+trigger: "default after /init lifecycle; user says ENTER BRAINSTORM MODE"
 ```
 
 ## to-prd (planned)

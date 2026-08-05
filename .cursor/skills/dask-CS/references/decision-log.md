@@ -42,7 +42,7 @@ template:
     - "{question} — deferred until {trigger_condition}"
 
   handoff:
-    recommended_next: to-prd | to-issues | dask-CS --light | none
+    recommended_next: to-brainstorm | to-prd | to-issues | dask-CS --light | none
     key_context: "{critical info for downstream implementer}"
 ```
 
