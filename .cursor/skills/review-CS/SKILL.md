@@ -56,6 +56,27 @@ steps:
 deviation_report: "Detected deviation: {exact_description}"
 ```
 
+## Mismatch Routing
+
+```yaml
+mismatch_routing:
+  judgment_criteria: "whether deviation touches interface signatures, data structures, or module boundaries"
+
+  implementation_level:
+    action: "rollback to EXECUTE with deviation checklist"
+
+  design_level:
+    action: "rollback to PLAN with deviation analysis"
+```
+
+## Deviation Review
+
+```yaml
+deviation_review:
+  additional_check: "verify EXECUTE's level_1 deviation classifications"
+  rule: "if EXECUTE classified a level_2 deviation as level_1, flag as deviation"
+```
+
 ## Report
 
 ```yaml

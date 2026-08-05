@@ -27,6 +27,39 @@ transitions:
   trigger: "ENTER {MODE} MODE"   # explicit only, no auto-transition
   execute_to_plan: on_deviation    # EXECUTE 发现需偏离 → 回退 PLAN
   execute_to_review: on_completion  # 全部实施完成且用户确认 → 进入 REVIEW
+
+entry_paths:
+  research_entry:
+    trigger: "/research or ENTER RESEARCH MODE"
+    condition: "project has existing code to analyze"
+    next: "RESEARCH → BRAINSTORM"
+  init_entry:
+    trigger: "/init"
+    condition: "greenfield project, no code to analyze"
+    next: "DASK (full lifecycle) → BRAINSTORM"
+    output: "decision-log.md"
+  rule: "user chooses entry explicitly; no automatic routing"
+
+rollback_paths:
+  - from: PLAN
+    to: RESEARCH
+    when: "constraints unclear, need more analysis"
+  - from: PLAN
+    to: BRAINSTORM
+    when: "chosen approach is wrong, need re-exploration"
+  - from: BRAINSTORM
+    to: RESEARCH
+    when: "options expose unknown code constraints"
+  - from: EXECUTE
+    to: PLAN
+    when: "deviation requires design change"
+  - from: REVIEW
+    to: EXECUTE
+    when: "implementation-level deviation, fixable"
+  - from: REVIEW
+    to: PLAN
+    when: "design-level deviation, replan needed"
+  rollback_rule: "no jump skips; each rollback carries reason + target question in task_progress"
 ```
 
 ## Invariants
@@ -60,6 +93,21 @@ invariants:
   - id: depth_match
     rule: "analysis depth matches problem importance"
     severity: medium
+```
+
+## Deviation Classification
+
+```yaml
+deviation_classification:
+  level_1_inline_fix:
+    criteria: "does not affect interface signatures, data structures, or module boundaries"
+    action: "fix within EXECUTE, record in task_progress with justification, continue"
+
+  level_2_design_deviation:
+    criteria: "affects interfaces, data structures, module relationships, or new dependencies"
+    action: "immediately return to PLAN"
+
+  review_check: "REVIEW verifies level_1 classifications; misclassified level_2 as level_1 = deviation"
 ```
 
 ## Thinking Principles
@@ -141,6 +189,9 @@ task_file:
     current_step: "{step number + name}"
     task_progress: "{timestamped change history}"
     final_review: "{post-completion summary}"
+    decision_log_ref: "path/to/decision-log.md (if /init entry was used)"
+    decisions_summary: "RESOLVED decisions extracted from decision-log"
+    risks_inherited: "high-risk items from decision-log risk register"
 ```
 
 ## Placeholder Registry

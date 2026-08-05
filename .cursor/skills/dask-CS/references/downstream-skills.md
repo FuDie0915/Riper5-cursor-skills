@@ -1,12 +1,12 @@
 # Downstream Skills — Concept Spec
 
-> Consumes `interrogate-CS` output. **Not yet implemented** — contracts for future development.
+> Consumes `dask-CS` output. **Not yet implemented** — contracts for future development.
 
 ## Overview
 
 ```yaml
 pipeline:
-  flow: "interrogate-CS → decision-log.md → [to-prd | to-issues | interrogate-CS --light]"
+  flow: "dask-CS → decision-log.md → [to-prd | to-issues | dask-CS --light]"
   principle: "decision log is the single source of truth"
   communication: "no skill talks directly to another — all via decision log"
 
@@ -14,10 +14,10 @@ interface:
   +----------------+------------------+------------------+
   | Skill          | Reads            | Produces         |
   +----------------+------------------+------------------+
-  | interrogate-CS | user input, code | decision-log.md  |
+  | dask-CS        | user input, code | decision-log.md  |
   | to-prd         | decision-log.md  | prd.md           |
   | to-issues      | decision-log.md  | issues/          |
-  | interrogate-CS | decision-log.md  | updated          |
+  | dask-CS        | decision-log.md  | updated          |
   |  --light       |                  | decision-log.md  |
   +----------------+------------------+------------------+
 ```
@@ -61,7 +61,7 @@ flow:
 trigger: 'user says "break this into issues" or handoff recommends to-issues'
 ```
 
-## interrogate-CS --light
+## dask-CS --light
 
 ```yaml
 purpose: "shorter follow-up session on decision subset"

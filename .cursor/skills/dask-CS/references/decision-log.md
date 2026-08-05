@@ -1,6 +1,6 @@
 # Decision Log Format
 
-> `interrogate-CS` session artifact. Consumed by downstream skills (`to-prd`, `to-issues`).
+> `dask-CS` session artifact. Consumed by downstream skills (`to-prd`, `to-issues`).
 
 ```yaml
 artifact:
@@ -42,7 +42,7 @@ template:
     - "{question} — deferred until {trigger_condition}"
 
   handoff:
-    recommended_next: to-prd | to-issues | interrogate-CS --light | none
+    recommended_next: to-prd | to-issues | dask-CS --light | none
     key_context: "{critical info for downstream implementer}"
 ```
 

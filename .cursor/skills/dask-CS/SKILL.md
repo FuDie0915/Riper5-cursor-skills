@@ -1,15 +1,15 @@
 ---
-name: interrogate-CS
-description: 逐问题拷问任何计划直到意图完全清晰。用户说"拷问我"、"帮我审视"或想压力测试计划时使用。
+name: dask-CS
+description: 逐问题深问直到意图完全清晰。用户说"拷问我"、"帮我审视"或想压力测试计划时使用。
 ---
 
-# Interrogate-CS — Interrogation Skill
+# Dask-CS — Deep Ask Skill
 
 > **Principle**: implementation quality ceiling = intent clarity. This skill exists to make intent explicit before any code is written.
 
 ```yaml
 skill:
-  name: interrogate-CS
+  name: dask-CS
   method: one_question_per_turn
   loop: walk every branch of decision tree → resolve dependencies sequentially
   language: user's language (default: zh-CN)
@@ -108,7 +108,7 @@ lifecycle:
     handoff_options:
       - to-prd: convert decisions to PRD (planned)
       - to-issues: split decisions to issues (planned)
-      - interrogate-CS --light: lighter follow-up session
+      - dask-CS --light: lighter follow-up session
 ```
 
 ## Decision Tracking

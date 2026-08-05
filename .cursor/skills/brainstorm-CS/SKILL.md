@@ -49,6 +49,25 @@ steps:
     rule: "do not modify any code in this phase"
 ```
 
+## Convergence Gate
+
+```yaml
+convergence_gate:
+  required_before_entering_PLAN:
+    - "all approach-level divergences must be RESOLVED or DEFERRED"
+    - "DEFERRED decisions must not block PLAN executability"
+    - "chosen approach's tech stack, data flow, module boundaries must be clear"
+
+  if_not_met:
+    action: "stay in BRAINSTORM, continue converging"
+
+  declaration_format: |
+    Solution Convergence:
+    - Chosen approach: {summary}
+    - Core decisions: {list with status [RESOLVED] or [DEFERRED + trigger]}
+    - Blocked by: {any DEFERRED decision blocking PLAN, or "none"}
+```
+
 ## Output
 
 ```yaml

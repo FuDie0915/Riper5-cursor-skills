@@ -40,6 +40,10 @@ output:
   prefix: "[MODE: RESEARCH]"
   content: observations + questions only
   no_bullets: unless explicitly requested
+
+entry_context:
+  role: "entry path for projects with existing code"
+  alternative: "use /init (dask-CS) for greenfield projects with no code to analyze"
 ```
 
 ## Protocol Steps

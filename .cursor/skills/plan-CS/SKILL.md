@@ -55,6 +55,11 @@ steps:
       [Change Plan]
       - File: {changed_file}
       - Rationale: {explanation}
+
+  - id: rollback_options
+    action: |
+      If constraints unclear → rollback to RESEARCH (carry reason + target question)
+      If chosen approach wrong → rollback to BRAINSTORM (carry reason)
 ```
 
 ## Mandatory Final Step

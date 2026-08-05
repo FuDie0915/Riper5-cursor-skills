@@ -80,7 +80,17 @@ quality:
 
 ```yaml
 deviation:
-  rule: "if any issue requires deviation → immediately return to PLAN"
+  level_1_inline_fix:
+    criteria: "does not affect interface signatures, data structures, or module boundaries"
+    examples: ["function name correction", "local logic adjustment", "missing error handling"]
+    action: "fix within EXECUTE, record in task_progress with justification, continue"
+    required: "must write judgment basis (why it doesn't touch interfaces/structures/boundaries)"
+
+  level_2_design_deviation:
+    criteria: "affects interfaces, data structures, module relationships, or new dependencies"
+    action: "immediately return to PLAN"
+
+  review_check: "REVIEW verifies level_1 judgments — misclassification = deviation"
 ```
 
 ## Output

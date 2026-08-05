@@ -8,10 +8,10 @@
 primary_triggers:
   - pattern: "interrogate me"
     example: "interrogate me on this plan"
-  - pattern: "interrogate-CS"
-    example: "run interrogate-CS on this design"
+  - pattern: "dask-CS"
+    example: "run dask-CS on this design"
   - pattern: "interrogate me pro"
-    example: "use interrogate-CS"
+    example: "use dask-CS"
   - pattern: "interrogate + plan|design|architecture"
     example: "interrogate this architecture"
   - pattern: "challenge my + design|plan|approach"
@@ -64,7 +64,7 @@ negative_triggers:
 
 ```yaml
 confidence:
-  certain: 1.0   # exact skill name match (interrogate-CS)
+  certain: 1.0   # exact skill name match (dask-CS)
   high: 0.9      # primary trigger + design/plan context
   medium: 0.7    # secondary trigger + clear planning context
   low: 0.4      # single keyword match, no context
@@ -75,13 +75,9 @@ confidence:
 
 ```yaml
 platforms:
-  evolve_agent:
-    activation: "no auto-trigger; via explicit user request or GENE/SOUL integration"
-    reference: 'README.md "Install to your Agent" section'
-
   claude_code:
-    activation: "via SKILL.md frontmatter description field"
-    note: "description optimized for coverage"
+    activation: "via CLAUDE.md or @include; no frontmatter/command mechanism"
+    note: "inject SKILL.md body into CLAUDE.md or separate file"
 
   cursor_windsurf_codex:
     activation: "via .cursorrules or skill directory"
